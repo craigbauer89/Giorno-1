@@ -279,6 +279,11 @@ document.getElementById('crono').innerHTML = h1 + ' : ' + m1 + ' : ' + s1;
 
 function update_secs() {
     s1++;
+    if (s1 >=60) {
+
+        s1 = 0;
+        m1++;
+    }
     document.getElementById('crono').innerHTML = h1 + ' : ' + m1 + ' : ' + s1;
         
 }
@@ -288,12 +293,8 @@ var myInterval;
 function start() {
 
     myInterval = setInterval(update_secs, 1000);
-
-    if (secs == 60) {
-
-        secs = 0;
-        mins++;
-    }
+    console.log(s1)
+    
     
    
 }
@@ -301,13 +302,13 @@ function start() {
 function reset() {
     clearInterval(myInterval);
     let data = new Date(0);
-    let hours = data.getUTCHours();
-    let mins = data.getUTCMinutes();
-    let secs = data.getUTCSeconds();
-    h = leadingzero(hours);
-    m = leadingzero(mins);
-    s = leadingzero(secs);
-    document.getElementById('crono').innerHTML = h + ' : ' + m + ' : ' + s;
+    let hours1 = data.getUTCHours();
+    let mins1 = data.getUTCMinutes();
+    let secs1 = data.getUTCSeconds();
+    h1 = leadingzero(hours1);
+    m1 = leadingzero(mins1);
+    s1 = leadingzero(secs1);
+    document.getElementById('crono').innerHTML = h1 + ' : ' + m1 + ' : ' + s1;
 }
 
 
