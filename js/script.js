@@ -257,7 +257,7 @@ function time() {
     h = leadingzero(hours);
     m = leadingzero(mins);
     s = leadingzero(secs);
-document.getElementById('time').innerHTML = day + '/' + month + '/' + year + '    '+ hours + '-' + m + '-' + secs;
+document.getElementById('time').innerHTML = day + '/' + month + '/' + year + '    '+ hours + '-' + m + '-' + s;
 
 } 
 
@@ -279,10 +279,18 @@ document.getElementById('crono').innerHTML = h1 + ' : ' + m1 + ' : ' + s1;
 
 function update_secs() {
     s1++;
+    s1 = leadingzero(s1)
     if (s1 >=60) {
 
         s1 = 0;
         m1++;
+        m1 = leadingzero(m1)
+    }
+    if (m1 >=60) {
+
+        m1 = 0;
+        h1++;
+        h1 = leadingzero(h1)
     }
     document.getElementById('crono').innerHTML = h1 + ' : ' + m1 + ' : ' + s1;
         
